@@ -1,0 +1,38 @@
+{
+
+    "ts-node": { 
+      "transpileOnly": true ,
+    "files": true,
+
+  "compilerOptions": {
+    
+    "target": "es2016",
+    "module": "commonjs",
+    "rootDir": "./src/",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "outDir": "dist",
+    "rootDirs": [
+      "./src",
+      "./tests"
+    ],
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictPropertyInitialization": false, 
+    "sourceMap": true, 
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "@types",
+      "./node_modules/@types"
+    ], 
+  }
+},
+"include": ["./src/**/*", "./server.ts"],
+"exclude": ["node_modules", "dist","eslint.config.mjs"]
+}
