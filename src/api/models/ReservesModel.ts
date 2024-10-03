@@ -1,6 +1,6 @@
 import { Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('reserves')
 class ReservesModel {
   @PrimaryGeneratedColumn()
   id: number;
@@ -20,3 +20,4 @@ class ReservesModel {
   @Column()
   offsets: number;
 }
+export default ReservesModel;

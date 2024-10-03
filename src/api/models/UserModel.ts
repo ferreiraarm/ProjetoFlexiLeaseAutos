@@ -1,12 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('user')
 class UserModel {
   @PrimaryGeneratedColumn()
   id: number;
-
-  @Column({ select: false })
-  cpf: number;
 
   @Column()
   name: string;
@@ -14,28 +11,17 @@ class UserModel {
   @Column({ unique: true })
   cpf: string;
 
+  @Column({ type: "date" })
   birth: Date;
-
-  @Column({ unique: true })
-  email: string;
-
-  @Column()
-  qualified: true;
 
   @Column()
   cep: number;
 
-  @Column()
-  neighbordhood: string;
+  @Column({ unique: true })
+  email: string;
 
-  @Column()
-  complement: string;
-
-  @Column()
-  city: string;
-
-  @Column()
-  uf: string;
+  @Column({ select:false)
+  password: string;
 }
 
 export default UserModel;

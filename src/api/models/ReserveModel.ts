@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('reserve')
 class ReserveModel {
   @PrimaryGeneratedColumn()
   id: number;

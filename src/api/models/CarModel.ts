@@ -1,7 +1,7 @@
 import {
   Column,
   Entity,
-  JoinColumn, 
+  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -28,7 +28,10 @@ class CarModel {
   @Column()
   valuePerDay: number;
 
-  @OneToMany(() => Acessories, (acessories) => acessories.car,  onUpdate: "CASCADE",)
+  @OneToMany(() => Acessories, (acessories) => acessories.car, {
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn({ name: 'acessories_id' })
   acessories: Acessories[];
 
   @Column()
