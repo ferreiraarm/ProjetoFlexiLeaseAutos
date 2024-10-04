@@ -17,35 +17,7 @@ import ReserveModel from '../api/models/ReserveModel';
 import ReservesModel from '../api/models/ReservesModel';
 import UserModel from '../api/models/UserModel';
 
-const dataSourceOptions: DataSourceOptions = {
-  type: 'sqlite',
-  database: 'dbFlexileaseAutos.sqlite',
-  synchronize: true,
-  logging: false,
-  entities: [
-    AcessoriesModel,
-    AuthModel,
-    CarModel,
-    CarsModel,
-    ReserveModel,
-    ReservesModel,
-    UserModel,
-  ],
-  migrations: [
-    CreateCarModelTable1727976244334,
-    CreateAcessoriesModelTable1727976285179,
-    CreateAuthModelTable1727976307975,
-    CreateCarsModelTable1727976339965,
-    CreateReserveModelTable1727976361704,
-    CreateReservesModelTable1727976392008,
-    CreateUserModelTable1727976414328,
-  ],
-};
-
-const AppDataSource = new DataSource(dataSourceOptions);
-export default AppDataSource;
-
-// export const AppDataSource = new DataSource({
+// const dataSourceOptions: DataSourceOptions = {
 //   type: 'sqlite',
 //   database: 'dbFlexileaseAutos.sqlite',
 //   synchronize: true,
@@ -68,5 +40,33 @@ export default AppDataSource;
 //     CreateReservesModelTable1727976392008,
 //     CreateUserModelTable1727976414328,
 //   ],
-//   subscribers: [],
-// });
+// };
+
+// const AppDataSource = new DataSource(dataSourceOptions);
+// export default AppDataSource;
+
+export const AppDataSource = new DataSource({
+    type: 'sqlite',
+    database: 'dbFlexileaseAutos.sqlite',
+    synchronize: true,
+    logging: false,
+    entities: [
+        AcessoriesModel,
+        AuthModel,
+        CarModel,
+        CarsModel,
+        ReserveModel,
+        ReservesModel,
+        UserModel,
+    ],
+    migrations: [
+        CreateCarModelTable1727976244334,
+        CreateAcessoriesModelTable1727976285179,
+        CreateAuthModelTable1727976307975,
+        CreateCarsModelTable1727976339965,
+        CreateReserveModelTable1727976361704,
+        CreateReservesModelTable1727976392008,
+        CreateUserModelTable1727976414328,
+    ],
+    subscribers: [],
+});
