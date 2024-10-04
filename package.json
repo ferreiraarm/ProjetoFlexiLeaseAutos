@@ -24,7 +24,7 @@
         "@typescript-eslint/types": "^8.4.0",
         "celebrate": "^15.0.3",
         "compasscineproject": "file:",
-        "express": "^4.19.2",
+        "express": "4.19.2",
         "ProjetoFlexileaseAutos": "file:",
         "reflect-metadata": "^0.2.2",
         "sqlite3": "^5.1.7",
