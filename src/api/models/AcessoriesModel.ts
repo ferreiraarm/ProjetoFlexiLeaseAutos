@@ -5,7 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-
+import Car from './CarModel';
 @Entity('acessories')
 class AcessoriesModel {
   @PrimaryGeneratedColumn()
@@ -15,7 +15,7 @@ class AcessoriesModel {
   @JoinColumn({ name: 'car_id' })
   car: Car;
 
-  @Column('varchar', { unique: true })
+  @Column({ type: 'varchar', unique: true })
   name: string;
 }
 

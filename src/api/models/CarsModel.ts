@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-
+import Car from './CarModel';
 @Entity('cars')
 class CarsModel {
   @PrimaryGeneratedColumn()
@@ -8,16 +8,16 @@ class CarsModel {
   @OneToMany(() => Car, (car) => car.cars)
   car: Car[];
 
-  @Column()
+  @Column({ type: 'int' })
   total: number;
 
-  @Column()
+  @Column({ type: 'int' })
   limit: number;
 
-  @Column()
+  @Column({ type: 'int' })
   offset: number;
 
-  @Column()
+  @Column({ type: 'int' })
   offsets: number;
 }
 

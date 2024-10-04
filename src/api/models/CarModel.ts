@@ -1,41 +1,42 @@
 import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  PrimaryGeneratedColumn,
+    Column,
+    Entity,
+    JoinColumn,
+    ManyToOne,
+    OneToMany,
+    PrimaryGeneratedColumn,
 } from 'typeorm';
-
+import Cars from './CarsModel';
+import Acessories from './AcessoriesModel';
 @Entity('car')
 class CarModel {
-  @PrimaryGeneratedColumn()
-  id: number;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-  @ManyToOne(() => Cars, (car) => cars.car, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'cars_id' })
-  cars: Cars;
+    @ManyToOne(() => Cars, (cars) => cars.car, { onDelete: 'CASCADE' })
+    @JoinColumn({ name: 'cars_id' })
+    cars: Cars;
 
-  @Column()
-  model: string;
+    @Column({ type: 'varchar' })
+    model: string;
 
-  @Column()
-  color: string;
+    @Column({ type: 'varchar' })
+    color: string;
 
-  @Column()
-  ano: number;
+    @Column({ type: 'int' })
+    ano: number;
 
-  @Column()
-  valuePerDay: number;
+    @Column({ type: 'int' })
+    valuePerDay: number;
 
-  @OneToMany(() => Acessories, (acessories) => acessories.car, {
-    onUpdate: 'CASCADE',
-  })
-  @JoinColumn({ name: 'acessories_id' })
-  acessories: Acessories[];
+    @OneToMany(() => Acessories, (acessories) => acessories.car, {
+        onUpdate: 'CASCADE',
+    })
+    @JoinColumn({ name: 'acessories_id' })
+    acessories: Acessories[];
 
-  @Column()
-  numberOfPassengers: number;
+    @Column({ type: 'int' })
+    numberOfPassengers: number;
 }
 
 export default CarModel;

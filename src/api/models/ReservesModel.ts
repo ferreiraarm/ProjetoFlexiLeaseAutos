@@ -1,23 +1,23 @@
-import { Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Entity, OneToMany, PrimaryGeneratedColumn, Column } from 'typeorm';
+import Reserve from './ReserveModel';
 @Entity('reserves')
 class ReservesModel {
-  @PrimaryGeneratedColumn()
-  id: number;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-  @OneToMany(() => Reserve, (reserve) => reserve.reserves)
-  reserve: Reserve[];
+    @OneToMany(() => Reserve, (reserve) => reserve.reserves)
+    reserve: Reserve[];
 
-  @Column()
-  total: number;
+    @Column({ type: 'int' })
+    total: number;
 
-  @Column()
-  limit: number;
+    @Column({ type: 'int' })
+    limit: number;
 
-  @Column()
-  offset: number;
+    @Column({ type: 'int' })
+    offset: number;
 
-  @Column()
-  offsets: number;
+    @Column({ type: 'int' })
+    offsets: number;
 }
 export default ReservesModel;

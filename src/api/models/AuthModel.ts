@@ -5,10 +5,10 @@ class AuthModel {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: 'text' })
   email: string;
 
-  @Column({ select: false })
+  @Column({ select: false, type: 'varchar' })
   password: string;
 }
 

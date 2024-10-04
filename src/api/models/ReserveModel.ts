@@ -1,24 +1,36 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
+import {
+    Column,
+    Entity,
+    PrimaryGeneratedColumn,
+    JoinColumn,
+    ManyToOne,
+} from 'typeorm';
+import Reserves from './ReservesModel';
 @Entity('reserve')
 class ReserveModel {
-  @PrimaryGeneratedColumn()
-  id: number;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-  @Column()
-  startDate: Date;
+    @ManyToOne(() => Reserves, (reserves) => reserves.reserve, {
+        onDelete: 'CASCADE',
+    })
+    @JoinColumn({ name: 'reserves_id' })
+    reserves: Reserves;
 
-  @Column()
-  endDate: Date;
+    @Column({ type: 'date' })
+    startDate: Date;
 
-  @Column()
-  finalDate: Date;
+    @Column({ type: 'date' })
+    endDate: Date;
 
-  @Column()
-  userId: number;
+    @Column({ type: 'date' })
+    finalDate: Date;
 
-  @Column()
-  carId: number; //escrever as referencias
+    @Column({ type: 'int' })
+    userId: number;
+
+    @Column({ type: 'int' })
+    carId: number; //escrever as referencias
 }
 
 export default ReserveModel;
