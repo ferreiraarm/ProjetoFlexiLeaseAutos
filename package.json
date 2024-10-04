@@ -10,7 +10,11 @@
     "start": "nodemon --exec npx ts-node src/index.ts",
     "style:check": "prettier --check \"src/**/*.ts\" ",
     "style:fix": "prettier --write \"src/**/*.ts\" ",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "typeorm": "typeorm-ts-node-commonjs ",
+    "typeorm:migrate:run": "typeorm-ts-node-commonjs --dataSource src/database/data-source.ts",
+    "typeorm:migrate": "yarn typeorm migration:run",
+    "typeorm:generate": "yarn typeorm migration:generate src/database/migrations/Migration --timestamp",
+    "typeorm:revert": "yarn typeorm migration:revert"
   },
   "author": "Artur Martins Ferreira",
   "license": "ISC",

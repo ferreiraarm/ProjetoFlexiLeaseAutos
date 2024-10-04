@@ -18,7 +18,7 @@ class ReserveModel {
   userId: number;
 
   @Column()
-  carId: number;
+  carId: number; //escrever as referencias
 }
 
 export default ReserveModel;

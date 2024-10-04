@@ -11,16 +11,16 @@ class UserModel {
   @Column({ unique: true })
   cpf: string;
 
-  @Column({ type: "date" })
+  @Column({ type: 'date' })
   birth: Date;
 
   @Column()
   cep: number;
 
   @Column({ unique: true })
-  email: string;
+  email: string; //verificar tipos de email e pass
 
-  @Column({ select:false)
+  @Column({ select: false })
   password: string;
 }
 

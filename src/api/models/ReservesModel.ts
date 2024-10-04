@@ -6,7 +6,7 @@ class ReservesModel {
   id: number;
 
   @OneToMany(() => Reserve, (reserve) => reserve.reserves)
-  reserves: Reserve[];
+  reserve: Reserve[];
 
   @Column()
   total: number;

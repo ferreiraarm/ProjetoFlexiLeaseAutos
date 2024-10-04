@@ -6,7 +6,7 @@ class CarsModel {
   id: number;
 
   @OneToMany(() => Car, (car) => car.cars)
-  cars: Car[];
+  car: Car[];
 
   @Column()
   total: number;
