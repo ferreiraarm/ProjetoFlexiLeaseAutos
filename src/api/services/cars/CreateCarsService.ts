@@ -1,7 +1,7 @@
 import CarsModel from 'src/api/models/CarsModel';
 import { AppDataSource } from 'src/database/data-source-cli';
 import CarsDTO from 'src/api/dtos/CarsDTO';
-import { ICarsCreateResponse } from 'src/api/interfaces/ICarsCreateResponse';
+import { ICarsCreateResquest } from 'src/api/interfaces/ICarsCreateResquest';
 
 class CreateCarsService {
     public async execute({
@@ -9,7 +9,7 @@ class CreateCarsService {
         limit,
         offset,
         offsets,
-    }: ICarsCreateResponse): Promise<CarsDTO> {
+    }: ICarsCreateResquest): Promise<CarsDTO> {
         const carsRepository = AppDataSource.getRepository(CarsModel);
         const cars = await carsRepository.create({
             total,
