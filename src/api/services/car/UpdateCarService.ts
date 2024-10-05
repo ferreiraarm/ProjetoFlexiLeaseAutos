@@ -1,6 +1,7 @@
 import { AppDataSource } from 'src/database/data-source-cli';
 import CarDTO from 'src/api/dtos/CarDTO';
 import { ICarUpdateRequest } from 'src/api/interfaces/ICarUpdateRequest';
+import CarsModel from 'src/api/models/CarsModel';
 import CarModel from 'src/api/models/CarModel';
 
 class UpdateCarService {
@@ -11,24 +12,42 @@ class UpdateCarService {
         year,
         valuePerDay,
         numberOfPassengers,
+        carsId,
     }: ICarUpdateRequest): Promise<CarDTO> {
-        const carRepository = AppDataSource.getRepository(CarModel);
-        const car = await carRepository.findOne({
-            where: { id },
+        const carsRepository = AppDataSource.getRepository(CarsModel);
+        const cars = await carsRepository.findOne({
+            where: { id: carsId },
         });
 
-        if (!car) {
-            throw new Error('car not found');
+        if (!cars) {
+            throw new Error('Cars not found');
         }
 
-        car.model = model;
-        car.color = color;
-        car.year = year;
-        car.valuePerDay = valuePerDay;
-        car.numberOfPassengers = numberOfPassengers;
+        const car = cars.car.find((car) => car.id === id);
 
-        await carRepository.save(car);
-        return new CarDTO(car);
+        if (!car) {
+            throw new Error('not f');
+        }
+
+        const carRepository = AppDataSource.getRepository(CarModel);
+        await carRepository.update(car.id, {
+            model,
+            color,
+            year,
+            valuePerDay,
+            numberOfPassengers,
+        });
+
+        const carUpdate = await carRepository.findOne({
+            where: { id: id },
+            relations: ['cars'],
+        });
+
+        if (!carUpdate) {
+            throw new Error('n f');
+        }
+
+        return new CarDTO(carUpdate);
     }
 }
 

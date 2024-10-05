@@ -3,7 +3,7 @@ import CarModel from '../models/CarModel';
 
 export default class CarDTO {
     id: number;
-    cars_id: number;
+    carsId: number;
     model: string;
     color: string;
     year: number;
@@ -13,7 +13,7 @@ export default class CarDTO {
 
     constructor(car: CarModel) {
         this.id = car.id;
-        this.cars_id = car.cars.id;
+        this.carsId = car.cars.id;
         this.model = car.model;
         this.color = car.color;
         this.year = car.year;

@@ -1,4 +1,4 @@
 export interface IAcessoriesCreateRequest {
-    car_id: number;
+    carId: number;
     name: string;
 }

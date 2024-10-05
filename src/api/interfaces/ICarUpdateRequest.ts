@@ -5,4 +5,5 @@ export interface ICarUpdateRequest {
     year: number;
     valuePerDay: number;
     numberOfPassengers: number;
+    carsId: number;
 }

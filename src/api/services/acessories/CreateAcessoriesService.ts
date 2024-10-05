@@ -5,13 +5,13 @@ import AcessoriesModel from 'src/api/models/AcessoriesModel';
 
 class CreateAcessoriesService {
     public async execute({
-        car_id,
+        carId,
         name,
     }: IAcessoriesCreateRequest): Promise<AcessoriesDTO> {
         const acessoriesRepository =
             AppDataSource.getRepository(AcessoriesModel);
         const acessories = await acessoriesRepository.findOne({
-            where: { id: car_id },
+            where: { id: carId },
         });
 
         if (!acessories) {
