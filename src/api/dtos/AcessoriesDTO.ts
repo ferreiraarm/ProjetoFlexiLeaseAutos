@@ -1,13 +1,15 @@
 import AcessoriesModel from '../models/AcessoriesModel';
 
 export default class AcessoriesDTO {
-  id: number;
-  name: string;
-  car_id: number;
+    id: number;
 
-  constructor(acessories: AcessoriesModel) {
-    this.id = acessories.id;
-    this.name = acessories.name;
-    this.car_id = acessories.car.id;
-  }
+    car_id: number;
+    name: string;
+
+    constructor(acessories: AcessoriesModel) {
+        this.id = acessories.id;
+
+        this.car_id = acessories.car.id;
+        this.name = acessories.name;
+    }
 }
