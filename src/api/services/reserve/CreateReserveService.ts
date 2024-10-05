@@ -1,6 +1,6 @@
 import { AppDataSource } from 'src/database/data-source-cli';
 import ReserveDTO from 'src/api/dtos/ReserveDTO';
-import { IReserveCreateEUpdateRequest } from 'src/api/interfaces/IReserveCreateEUpdateRequest';
+import { IReserveCreateRequest } from 'src/api/interfaces/IReserveCreateRequest';
 
 import ReserveModel from 'src/api/models/ReserveModel';
 
@@ -12,7 +12,7 @@ class CreateReserveService {
         endDate,
         carId,
         reservesId,
-    }: IReserveCreateEUpdateRequest): Promise<ReserveDTO> {
+    }: IReserveCreateRequest): Promise<ReserveDTO> {
         const reservesRepository = AppDataSource.getRepository(ReservesModel);
         const reserves = await reservesRepository.findOne({
             where: { id: reservesId },

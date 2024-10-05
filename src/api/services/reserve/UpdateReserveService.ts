@@ -1,16 +1,17 @@
 import { AppDataSource } from 'src/database/data-source-cli';
 import ReserveDTO from 'src/api/dtos/ReserveDTO';
-import { IReserveCreateEUpdateRequest } from 'src/api/interfaces/IReserveCreateEUpdateRequest';
+import { IReserveUpdateRequest } from 'src/api/interfaces/IReserveUpdateRequest';
 import ReservesModel from 'src/api/models/ReservesModel';
 import ReserveModel from 'src/api/models/ReserveModel';
 
 class UpdateReserveService {
     public async execute({
+        id,
         carId,
         startDate,
         endDate,
         reservesId,
-    }: IReserveCreateEUpdateRequest): Promise<ReserveDTO> {
+    }: IReserveUpdateRequest): Promise<ReserveDTO> {
         const reservesRepository = AppDataSource.getRepository(ReservesModel);
         const reserves = await reservesRepository.findOne({
             where: { id: reservesId },
@@ -31,6 +32,15 @@ class UpdateReserveService {
             startDate,
             endDate,
         });
+
+        const reserveUpdate = await reserveRepository.findOne({
+            where: { id: id },
+        });
+
+        if (!reserveUpdate) {
+            throw new Error('nf');
+        }
+        return new ReserveDTO(reserveUpdate);
     }
 }
 export default UpdateReserveService;
