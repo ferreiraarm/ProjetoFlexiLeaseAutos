@@ -24,7 +24,7 @@ class CarModel {
     color: string;
 
     @Column({ type: 'int' })
-    ano: number;
+    year: number;
 
     @Column({ type: 'int' })
     valuePerDay: number;

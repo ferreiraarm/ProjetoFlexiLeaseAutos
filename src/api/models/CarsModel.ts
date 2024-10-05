@@ -1,7 +1,10 @@
-import { Column, Entity, OneToMany } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import Car from './CarModel';
 @Entity('cars')
 class CarsModel {
+    @PrimaryGeneratedColumn()
+    id: number;
+
     @OneToMany(() => Car, (car) => car.cars)
     car: Car[];
 

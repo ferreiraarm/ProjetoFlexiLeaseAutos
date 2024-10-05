@@ -1,7 +1,10 @@
-import { Entity, OneToMany, Column } from 'typeorm';
+import { Entity, OneToMany, PrimaryGeneratedColumn, Column } from 'typeorm';
 import Reserve from './ReserveModel';
 @Entity('reserves')
 class ReservesModel {
+    @PrimaryGeneratedColumn()
+    id: number;
+
     @OneToMany(() => Reserve, (reserve) => reserve.reserves)
     reserve: Reserve[];
 
