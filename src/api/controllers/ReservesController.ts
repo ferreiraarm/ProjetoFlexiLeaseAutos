@@ -37,8 +37,8 @@ class ReservesController {
         response: Response,
     ): Promise<Response> {
         const listReserves = new ListAllReservesService();
-        const cars = await listReserves.execute();
-        return response.json(cars);
+        const reserves = await listReserves.execute();
+        return response.json(reserves);
     }
 }
 export default ReservesController;
