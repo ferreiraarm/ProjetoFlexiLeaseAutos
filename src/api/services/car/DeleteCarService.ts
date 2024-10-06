@@ -1,9 +1,10 @@
 import { AppDataSource } from 'src/database/data-source-cli';
 import CarModel from 'src/api/models/CarModel';
 import CarsModel from 'src/api/models/CarsModel';
+import { ICarDeleteRequest } from 'src/api/interfaces/ICarDeleteRequest';
 
 class DeleteCarService {
-    public async execute(id: number, carsId: number): Promise<void> {
+    public async execute({ id, carsId }: ICarDeleteRequest): Promise<void> {
         const carsRepository = AppDataSource.getRepository(CarsModel);
         const cars = await carsRepository.findOne({
             where: { id: carsId },

@@ -1,9 +1,10 @@
 import CarDTO from 'src/api/dtos/CarDTO';
+import { ICarListRequest } from 'src/api/interfaces/ICarListRequest';
 import CarModel from 'src/api/models/CarModel';
 import { AppDataSource } from 'src/database/data-source-cli';
 
 class ListCarService {
-    public async execute(id: number): Promise<CarDTO> {
+    public async execute({ id }: ICarListRequest): Promise<CarDTO> {
         const carRepository = AppDataSource.getRepository(CarModel);
         const car = await carRepository.findOne({
             where: { id },

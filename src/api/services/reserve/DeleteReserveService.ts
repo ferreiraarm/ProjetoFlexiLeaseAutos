@@ -1,9 +1,13 @@
 import { AppDataSource } from 'src/database/data-source-cli';
 import ReserveModel from 'src/api/models/ReserveModel';
 import ReservesModel from 'src/api/models/ReservesModel';
+import { IReserveDeleteRequest } from 'src/api/interfaces/IReserveDeleteRequest';
 
 class DeleteReserveService {
-    public async execute(id: number, reservesId: number): Promise<void> {
+    public async execute({
+        id,
+        reservesId,
+    }: IReserveDeleteRequest): Promise<void> {
         const reservesRepository = AppDataSource.getRepository(ReservesModel);
         const reserves = await reservesRepository.findOne({
             where: { id: reservesId },

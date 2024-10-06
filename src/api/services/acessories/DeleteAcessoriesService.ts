@@ -1,8 +1,9 @@
 import { AppDataSource } from 'src/database/data-source-cli';
 import AcessoriesModel from 'src/api/models/AcessoriesModel';
+import { IAcessoriesDeleteRequest } from 'src/api/interfaces/IAcessoriesDeleteRequest';
 
 class DeleteAcessoriesService {
-    public async execute(id: number): Promise<void> {
+    public async execute({ id }: IAcessoriesDeleteRequest): Promise<void> {
         const acessoriesRepository =
             AppDataSource.getMongoRepository(AcessoriesModel);
         const acessories = await acessoriesRepository.findOne({
