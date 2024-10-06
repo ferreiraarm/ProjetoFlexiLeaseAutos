@@ -58,7 +58,7 @@ class CarController {
         return response.status(204).send();
     }
 
-    public async ListCarId(
+    public async listCarId(
         request: Request,
         response: Response,
     ): Promise<Response> {
