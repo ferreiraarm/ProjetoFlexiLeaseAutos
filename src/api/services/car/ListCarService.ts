@@ -7,7 +7,7 @@ class ListCarService {
     public async execute({ id }: ICarListRequest): Promise<CarDTO> {
         const carRepository = AppDataSource.getRepository(CarModel);
         const car = await carRepository.findOne({
-            where: { id },
+            where: { id: id },
             relations: {
                 acessories: true,
             },
