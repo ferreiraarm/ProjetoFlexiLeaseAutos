@@ -4,7 +4,7 @@ import UserModel from 'src/api/models/UserModel';
 
 import { IUserUpdateRequest } from 'src/api/interfaces/IUserUpdateRequest';
 
-class UpdadeUserService {
+class UpdateUserService {
     public async execute({
         id,
         name,
@@ -34,4 +34,4 @@ class UpdadeUserService {
     }
 }
 
-export default UpdadeUserService;
+export default UpdateUserService;
