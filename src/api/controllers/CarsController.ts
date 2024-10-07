@@ -32,7 +32,7 @@ class CarsController {
         return response.status(204).send();
     }
 
-    public async listReserves(
+    public async listCars(
         request: Request,
         response: Response,
     ): Promise<Response> {
