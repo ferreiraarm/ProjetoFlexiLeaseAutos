@@ -30,7 +30,7 @@ class CarsRepository extends Repository<CarModel> {
         return car;
     }
 
-    public async findByValuePerDat(
+    public async findByValuePerDay(
         valuePerDay: number,
     ): Promise<CarModel | null> {
         const car = await this.findOne({

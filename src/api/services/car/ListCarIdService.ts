@@ -1,10 +1,10 @@
 import CarDTO from 'src/api/dtos/CarDTO';
-import { ICarListRequest } from 'src/api/interfaces/ICarListRequest';
+import { ICarListIdRequest } from 'src/api/interfaces/ICarListIdRequest';
 import CarModel from 'src/api/models/CarModel';
 import { AppDataSource } from 'src/database/data-source-cli';
 
-class ListCarService {
-    public async execute({ id }: ICarListRequest): Promise<CarDTO> {
+class ListCarIdService {
+    public async execute({ id }: ICarListIdRequest): Promise<CarDTO> {
         const carRepository = AppDataSource.getRepository(CarModel);
         const car = await carRepository.findOne({
             where: { id: id },
@@ -20,4 +20,4 @@ class ListCarService {
         return new CarDTO(car);
     }
 }
-export default ListCarService;
+export default ListCarIdService;
