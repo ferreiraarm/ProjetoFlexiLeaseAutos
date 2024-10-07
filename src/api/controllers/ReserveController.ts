@@ -1,8 +1,17 @@
 import { Request, Response } from 'express';
 import CreateReserveService from '../services/reserve/CreateReserveService';
 import UpdateReserveService from '../services/reserve/UpdateReserveService';
-import ListReserveService from '../services/reserve/ListReserveService';
+import { AppDataSource } from 'src/database/data-source-cli';
 import DeleteReserveService from '../services/reserve/DeleteReserveService';
+import ListReserveIdService from '../services/reserve/ListReserveIdService';
+import ReservesRepository from '../repositories/ReservesRepository';
+import ListCarIdService from '../services/car/ListCarIdService';
+import ListReserveCarIdService from '../services/reserve/ListReserveCarIdService';
+import ListReserveEndDateService from '../services/reserve/ListReserveEndDateService';
+import { parse } from 'path';
+import ListReserveFinalDateService from '../services/reserve/ListReserveFinalDateService';
+import ListReserveStartDateService from '../services/reserve/ListReserveStardDateService';
+import ListReserveUserIDService from '../services/reserve/ListReserveUserIdService';
 
 class ReserveController {
     public async create(
@@ -58,8 +67,78 @@ class ReserveController {
     ): Promise<Response> {
         const id = parseInt(request.params.id);
 
-        const listReserve = new ListReserveService();
+        const listReserve = new ListReserveIdService();
         const reserve = await listReserve.execute({ id });
+        return response.json(reserve);
+    }
+
+    public async listReserveCarId(
+        request: Request,
+        response: Response,
+    ): Promise<Response> {
+        const carId = parseInt(request.params.carId);
+        const reserveRepository = new ReservesRepository(AppDataSource);
+
+        const listReserve = new ListReserveCarIdService(reserveRepository);
+        const reserve = await listReserve.finByCarId({
+            carId,
+        });
+        return response.json(reserve);
+    }
+
+    public async listReserveEndDate(
+        request: Request,
+        response: Response,
+    ): Promise<Response> {
+        const endDate = new Date(request.params.endDate);
+        const reserveRepository = new ReservesRepository(AppDataSource);
+
+        const listReserve = new ListReserveEndDateService(reserveRepository);
+        const reserve = await listReserve.finByEndDate({
+            endDate,
+        });
+        return response.json(reserve);
+    }
+
+    public async listReserveFinalDate(
+        request: Request,
+        response: Response,
+    ): Promise<Response> {
+        const finalDate = new Date(request.params.finalDate);
+        const reserveRepository = new ReservesRepository(AppDataSource);
+
+        const listReserve = new ListReserveFinalDateService(reserveRepository);
+        const reserve = await listReserve.finByFinalDate({
+            finalDate,
+        });
+        return response.json(reserve);
+    }
+
+    public async listReserveStartDate(
+        request: Request,
+        response: Response,
+    ): Promise<Response> {
+        const startDate = new Date(request.params.startDate);
+        const reserveRepository = new ReservesRepository(AppDataSource);
+
+        const listReserve = new ListReserveStartDateService(reserveRepository);
+        const reserve = await listReserve.finByStartDate({
+            startDate,
+        });
+        return response.json(reserve);
+    }
+
+    public async listReserveUserId(
+        request: Request,
+        response: Response,
+    ): Promise<Response> {
+        const userId = parseInt(request.params.userId);
+        const reserveRepository = new ReservesRepository(AppDataSource);
+
+        const listReserve = new ListReserveUserIDService(reserveRepository);
+        const reserve = await listReserve.finByUserId({
+            userId,
+        });
         return response.json(reserve);
     }
 }
