@@ -1,7 +1,7 @@
-import { AppDataSource } from 'src/database/data-source-cli';
-import ReserveModel from 'src/api/models/ReserveModel';
-import ReservesModel from 'src/api/models/ReservesModel';
-import { IReserveDeleteRequest } from 'src/api/interfaces/IReserveDeleteRequest';
+import { AppDataSource } from '../../../database/data-source-cli';
+import { IReserveDeleteRequest } from '../../interfaces/IReserveDeleteRequest';
+import ReserveModel from '../../models/ReserveModel';
+import ReservesModel from '../../models/ReservesModel';
 
 class DeleteReserveService {
     public async execute({

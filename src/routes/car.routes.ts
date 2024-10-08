@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import CarController from 'src/api/controllers/CarController';
+import CarController from '../api/controllers/CarController';
 
 const carRouter = Router();
 

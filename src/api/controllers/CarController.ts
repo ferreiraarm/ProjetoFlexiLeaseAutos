@@ -4,12 +4,12 @@ import UpdateCarService from '../services/car/UpdateCarService';
 import DeleteCarService from '../services/car/DeleteCarService';
 import ListCarIdService from '../services/car/ListCarIdService';
 import ListCarModelService from '../services/car/ListCarModelService';
-import { AppDataSource } from 'src/database/data-source-cli';
 import CarsRepository from '../repositories/CarsRepository';
 import ListCarColorService from '../services/car/ListCarColorService';
 import ListCarYearService from '../services/car/ListCarYearService';
 import ListCarValuePerDayService from '../services/car/ListCarValuePerDayService';
 import ListCarNumberOfPassengersService from '../services/car/ListCarNumberOfPassengersService';
+import { AppDataSource } from '../../database/data-source-cli';
 
 class CarController {
     public async update(

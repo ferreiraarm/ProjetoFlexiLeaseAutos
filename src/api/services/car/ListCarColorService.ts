@@ -1,6 +1,5 @@
-import { ICarListColorRequest } from 'src/api/interfaces/ICarListColorRequest';
-
-import CarsRepository from 'src/api/repositories/CarsRepository';
+import { ICarListColorRequest } from '../../interfaces/ICarListColorRequest';
+import CarsRepository from '../../repositories/CarsRepository';
 
 class ListCarColorService {
     constructor(private readonly carsRepository: CarsRepository) {}

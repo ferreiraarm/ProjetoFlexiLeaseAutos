@@ -1,6 +1,6 @@
-import ReservesDTO from 'src/api/dtos/ReservesDTO';
-import ReservesModel from 'src/api/models/ReservesModel';
-import { AppDataSource } from 'src/database/data-source-cli';
+import { AppDataSource } from '../../../database/data-source-cli';
+import ReservesDTO from '../../dtos/ReservesDTO';
+import ReservesModel from '../../models/ReservesModel';
 
 class ListAllReservesService {
     public async execute(): Promise<ReservesDTO[]> {

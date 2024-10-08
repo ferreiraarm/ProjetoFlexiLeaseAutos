@@ -1,7 +1,7 @@
-import { AppDataSource } from 'src/database/data-source-cli';
-import UserDTO from 'src/api/dtos/UserDTO';
-import UserModel from 'src/api/models/UserModel';
-import { IUserCreateRequest } from 'src/api/interfaces/IUserCreateRequest';
+import { AppDataSource } from '../../../database/data-source-cli';
+import UserDTO from '../../dtos/UserDTO';
+import { IUserCreateRequest } from '../../interfaces/IUserCreateRequest';
+import UserModel from '../../models/UserModel';
 
 class CreateUserService {
     public async execute({

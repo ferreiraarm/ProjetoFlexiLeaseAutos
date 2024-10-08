@@ -1,5 +1,5 @@
-import { IReserveListCarIdRequest } from 'src/api/interfaces/IReserveListCarIdRequest';
-import ReservesRepository from 'src/api/repositories/ReservesRepository';
+import { IReserveListCarIdRequest } from '../../interfaces/IReserveListCarIdRequest';
+import ReservesRepository from '../../repositories/ReservesRepository';
 
 class ListReserveCarIdService {
     constructor(private readonly reserveRepository: ReservesRepository) {}

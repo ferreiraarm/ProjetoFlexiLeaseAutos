@@ -1,8 +1,8 @@
-import { AppDataSource } from 'src/database/data-source-cli';
-import ReserveDTO from 'src/api/dtos/ReserveDTO';
-import { IReserveUpdateRequest } from 'src/api/interfaces/IReserveUpdateRequest';
-import ReservesModel from 'src/api/models/ReservesModel';
-import ReserveModel from 'src/api/models/ReserveModel';
+import { AppDataSource } from '../../../database/data-source-cli';
+import ReserveDTO from '../../dtos/ReserveDTO';
+import { IReserveUpdateRequest } from '../../interfaces/IReserveUpdateRequest';
+import ReserveModel from '../../models/ReserveModel';
+import ReservesModel from '../../models/ReservesModel';
 
 class UpdateReserveService {
     public async execute({

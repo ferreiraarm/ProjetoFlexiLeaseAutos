@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import PatchAcessoriesService from '../services/acessories/PatchAcessoriesService';
+import { APIError } from '../error/APIError';
 
 class AcessoriesController {
     public async pacthUpdate(
@@ -15,6 +16,10 @@ class AcessoriesController {
             carId,
             name,
         });
+
+        if (acessories instanceof APIError) {
+            return response.status(404).json(acessories);
+        }
 
         return response.json(acessories);
     }

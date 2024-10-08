@@ -1,8 +1,8 @@
-import { AppDataSource } from 'src/database/data-source-cli';
-import CarDTO from 'src/api/dtos/CarDTO';
-import { ICarUpdateRequest } from 'src/api/interfaces/ICarUpdateRequest';
-import CarsModel from 'src/api/models/CarsModel';
-import CarModel from 'src/api/models/CarModel';
+import { AppDataSource } from '../../../database/data-source-cli';
+import CarDTO from '../../dtos/CarDTO';
+import { ICarUpdateRequest } from '../../interfaces/ICarUpdateRequest';
+import CarModel from '../../models/CarModel';
+import CarsModel from '../../models/CarsModel';
 
 class UpdateCarService {
     public async execute({

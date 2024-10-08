@@ -1,7 +1,7 @@
-import UserDTO from 'src/api/dtos/UserDTO';
-import { AppDataSource } from 'src/database/data-source-cli';
-import UserModel from 'src/api/models/UserModel';
-import { IUserDeleteEListRequest } from 'src/api/interfaces/IUserDeleteEListRequest';
+import { AppDataSource } from '../../../database/data-source-cli';
+import UserDTO from '../../dtos/UserDTO';
+import { IUserDeleteEListRequest } from '../../interfaces/IUserDeleteEListRequest';
+import UserModel from '../../models/UserModel';
 
 class ListUserService {
     public async execute({ id }: IUserDeleteEListRequest): Promise<UserDTO> {

@@ -1,7 +1,7 @@
-import CarsModel from 'src/api/models/CarsModel';
-import { AppDataSource } from 'src/database/data-source-cli';
-import CarsDTO from 'src/api/dtos/CarsDTO';
-import { ICarsCreateResquest } from 'src/api/interfaces/ICarsCreateResquest';
+import { AppDataSource } from '../../../database/data-source-cli';
+import CarsDTO from '../../dtos/CarsDTO';
+import { ICarsCreateResquest } from '../../interfaces/ICarsCreateResquest';
+import CarsModel from '../../models/CarsModel';
 
 class CreateCarsService {
     public async execute({

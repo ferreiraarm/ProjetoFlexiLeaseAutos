@@ -1,8 +1,7 @@
-import { AppDataSource } from 'src/database/data-source-cli';
-import UserDTO from 'src/api/dtos/UserDTO';
-import UserModel from 'src/api/models/UserModel';
-
-import { IUserUpdateRequest } from 'src/api/interfaces/IUserUpdateRequest';
+import { AppDataSource } from '../../../database/data-source-cli';
+import UserDTO from '../../dtos/UserDTO';
+import { IUserUpdateRequest } from '../../interfaces/IUserUpdateRequest';
+import UserModel from '../../models/UserModel';
 
 class UpdateUserService {
     public async execute({

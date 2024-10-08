@@ -1,7 +1,7 @@
-import ReserveDTO from 'src/api/dtos/ReserveDTO';
-import { IReserveListIdRequest } from 'src/api/interfaces/IReserveListIdRequest';
-import ReserveModel from 'src/api/models/ReserveModel';
-import { AppDataSource } from 'src/database/data-source-cli';
+import { AppDataSource } from '../../../database/data-source-cli';
+import ReserveDTO from '../../dtos/ReserveDTO';
+import { IReserveListIdRequest } from '../../interfaces/IReserveListIdRequest';
+import ReserveModel from '../../models/ReserveModel';
 
 class ListReserveIdService {
     public async execute({ id }: IReserveListIdRequest): Promise<ReserveDTO> {

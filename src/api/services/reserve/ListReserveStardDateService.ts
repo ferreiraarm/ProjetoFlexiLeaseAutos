@@ -1,5 +1,5 @@
-import { IReserveListStartDateRequest } from 'src/api/interfaces/IReserveListStartDateRequest';
-import ReservesRepository from 'src/api/repositories/ReservesRepository';
+import { IReserveListStartDateRequest } from '../../interfaces/IReserveListStartDateRequest';
+import ReservesRepository from '../../repositories/ReservesRepository';
 
 class ListReserveStartDateService {
     constructor(private readonly reserveRepository: ReservesRepository) {}

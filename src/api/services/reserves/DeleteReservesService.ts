@@ -1,6 +1,6 @@
-import { AppDataSource } from 'src/database/data-source-cli';
-import ReservesModel from 'src/api/models/ReservesModel';
-import { IDeleteCarsEReservesServices } from 'src/api/interfaces/IDeleteCarsEReservesServices';
+import { AppDataSource } from '../../../database/data-source-cli';
+import { IDeleteCarsEReservesServices } from '../../interfaces/IDeleteCarsEReservesServices';
+import ReservesModel from '../../models/ReservesModel';
 
 class DeleteReservesService {
     public async execute({ id }: IDeleteCarsEReservesServices): Promise<void> {

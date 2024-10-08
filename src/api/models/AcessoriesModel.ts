@@ -6,6 +6,7 @@ import {
     PrimaryGeneratedColumn,
 } from 'typeorm';
 import Car from './CarModel';
+import { IsNotEmpty } from 'class-validator';
 @Entity('acessories')
 class AcessoriesModel {
     @PrimaryGeneratedColumn()
@@ -15,6 +16,7 @@ class AcessoriesModel {
     @JoinColumn({ name: 'car_id' })
     car: Car;
 
+    @IsNotEmpty()
     @Column({ type: 'varchar', unique: true })
     name: string;
 }

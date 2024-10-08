@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import AcessoriesController from 'src/api/controllers/AcessoriesController';
+import AcessoriesController from '../api/controllers/AcessoriesController';
 
 const acessoriesRouter = Router();
 const acessoriesController = new AcessoriesController();
 
-acessoriesRouter.post('/car/:id', acessoriesController.pacthUpdate); //mudar para patch
+acessoriesRouter.patch('/car/:id', acessoriesController.pacthUpdate); //mudar para patch
 
 export default acessoriesRouter;

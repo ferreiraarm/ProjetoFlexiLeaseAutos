@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import ReservesController from 'src/api/controllers/ReservesController';
+import ReservesController from '../api/controllers/ReservesController';
 
 const reservesRouter = Router();
 const reservesController = new ReservesController();

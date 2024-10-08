@@ -1,7 +1,7 @@
-import ReservesModel from 'src/api/models/ReservesModel';
-import { AppDataSource } from 'src/database/data-source-cli';
-import ReservesDTO from 'src/api/dtos/ReservesDTO';
-import { IReservesCreateRequest } from 'src/api/interfaces/IReservesCreateRequest';
+import { AppDataSource } from '../../../database/data-source-cli';
+import ReservesDTO from '../../dtos/ReservesDTO';
+import { IReservesCreateRequest } from '../../interfaces/IReservesCreateRequest';
+import ReservesModel from '../../models/ReservesModel';
 
 class CreateReservesService {
     public async execute({

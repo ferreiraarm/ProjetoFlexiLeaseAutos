@@ -1,6 +1,5 @@
-import { ICarListYearRequest } from 'src/api/interfaces/ICarListYearRequest';
-
-import CarsRepository from 'src/api/repositories/CarsRepository';
+import { ICarListYearRequest } from '../../interfaces/ICarListYearRequest';
+import CarsRepository from '../../repositories/CarsRepository';
 
 class ListCarYearService {
     constructor(private readonly carsRepository: CarsRepository) {}

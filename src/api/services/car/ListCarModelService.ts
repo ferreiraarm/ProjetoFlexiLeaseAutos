@@ -1,6 +1,5 @@
-import { ICarListModelRequest } from 'src/api/interfaces/ICarListModelRequest';
-
-import CarsRepository from 'src/api/repositories/CarsRepository';
+import { ICarListModelRequest } from '../../interfaces/ICarListModelRequest';
+import CarsRepository from '../../repositories/CarsRepository';
 
 class ListCarModelService {
     constructor(private readonly carsRepository: CarsRepository) {}

@@ -1,14 +1,14 @@
-import { AppDataSource } from 'src/database/data-source-cli';
-import { IAcessoriesPacthRequest } from 'src/api/interfaces/IAcessoriesPacthRequest';
-import AcessoriesDTO from 'src/api/dtos/AcessoriesDTO';
-
-import AcessoriesModel from 'src/api/models/AcessoriesModel';
+import { AppDataSource } from '../../../database/data-source-cli';
+import AcessoriesDTO from '../../dtos/AcessoriesDTO';
+import { APIError } from '../../error/APIError';
+import { IAcessoriesPacthRequest } from '../../interfaces/IAcessoriesPacthRequest';
+import AcessoriesModel from '../../models/AcessoriesModel';
 
 class PatchAcessoriesService {
     public async execute({
         name,
         carId,
-    }: IAcessoriesPacthRequest): Promise<AcessoriesDTO> {
+    }: IAcessoriesPacthRequest): Promise<AcessoriesDTO | APIError> {
         const acessoriesRepository =
             AppDataSource.getRepository(AcessoriesModel);
         const acessories = await acessoriesRepository.findOne({
@@ -16,10 +16,14 @@ class PatchAcessoriesService {
         });
 
         if (!acessories) {
-            throw new Error('acessories not found');
+            return {
+                code: 404,
+                status: 'Not Found',
+                message: 'O acessório não foi encontrado.',
+            };
+        } else {
+            acessories.name = name;
         }
-
-        acessories.name = name;
 
         await acessoriesRepository.save(acessories);
         return new AcessoriesDTO(acessories);
