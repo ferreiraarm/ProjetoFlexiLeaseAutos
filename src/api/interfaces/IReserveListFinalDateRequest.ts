@@ -1,3 +1,3 @@
 export interface IReserveListFinalDateRequest {
-    finalDate: Date;
+    finalValue: number;
 }

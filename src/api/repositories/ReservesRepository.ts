@@ -23,11 +23,11 @@ class ReservesRepository extends Repository<ReserveModel> {
 
         return reserve;
     }
-    public async findByFinalDate(
-        finalDate: Date,
+    public async finByFinalValue(
+        finalValue: number,
     ): Promise<ReserveModel | null> {
         const reserve = await this.findOne({
-            where: { finalDate },
+            where: { finalValue },
         });
 
         return reserve;

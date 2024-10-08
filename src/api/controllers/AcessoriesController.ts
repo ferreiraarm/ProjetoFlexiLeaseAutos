@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
 import PatchAcessoriesService from '../services/acessories/PatchAcessoriesService';
-import { APIError } from '../error/APIError';
+import CreateAcessoriesService from '../services/acessories/CreateAcessoriesService';
 
 class AcessoriesController {
     public async pacthUpdate(
@@ -17,10 +17,23 @@ class AcessoriesController {
             name,
         });
 
-        if (acessories instanceof APIError) {
-            return response.status(404).json(acessories);
+        if (Object.keys(acessories).indexOf('code') !== -1) {
+            return response.status(400).json(acessories);
         }
 
+        return response.json(acessories);
+    }
+
+    public async create(
+        request: Request,
+        response: Response,
+    ): Promise<Response> {
+        const { name } = request.body;
+
+        const createAcessories = new CreateAcessoriesService();
+        const acessories = await createAcessories.execute({
+            name,
+        });
         return response.json(acessories);
     }
 }

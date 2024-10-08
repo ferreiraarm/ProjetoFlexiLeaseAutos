@@ -4,8 +4,8 @@ import ReservesRepository from '../../repositories/ReservesRepository';
 class ListReserveFinalDateService {
     constructor(private readonly reserveRepository: ReservesRepository) {}
 
-    public async finByFinalDate({ finalDate }: IReserveListFinalDateRequest) {
-        return this.reserveRepository.findByFinalDate(finalDate);
+    public async finByFinalValue({ finalValue }: IReserveListFinalDateRequest) {
+        return this.reserveRepository.finByFinalValue(finalValue);
     }
 }
 export default ListReserveFinalDateService;

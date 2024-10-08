@@ -24,7 +24,7 @@ class ReserveModel {
     endDate: Date;
 
     @Column({ type: 'date' })
-    finalDate: Date;
+    finalValue: number;
 
     @Column({ type: 'int' })
     userId: number;

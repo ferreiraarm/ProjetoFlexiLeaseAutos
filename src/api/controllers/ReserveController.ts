@@ -18,12 +18,14 @@ class ReserveController {
         request: Request,
         response: Response,
     ): Promise<Response> {
-        const { startDate, endDate, carId, reservesId } = request.body;
+        const { startDate, endDate, finalValue, carId, reservesId } =
+            request.body;
 
         const createReserve = new CreateReserveService();
         const reserve = await createReserve.execute({
             startDate,
             endDate,
+            finalValue,
             carId,
             reservesId,
         });
@@ -35,13 +37,15 @@ class ReserveController {
         response: Response,
     ): Promise<Response> {
         const id = parseInt(request.params.id);
-        const { startDate, endDate, carId, reservesId } = request.body;
+        const { startDate, endDate, finalValue, carId, reservesId } =
+            request.body;
 
         const updateReserve = new UpdateReserveService();
         const reserve = updateReserve.execute({
             id,
             startDate,
             endDate,
+            finalValue,
             carId,
             reservesId,
         });
@@ -100,16 +104,16 @@ class ReserveController {
         return response.json(reserve);
     }
 
-    public async listReserveFinalDate(
+    public async listReserveFinalValue(
         request: Request,
         response: Response,
     ): Promise<Response> {
-        const finalDate = new Date(request.params.finalDate);
+        const finalValue = parseInt(request.params.finalValue);
         const reserveRepository = new ReservesRepository(AppDataSource);
 
         const listReserve = new ListReserveFinalDateService(reserveRepository);
-        const reserve = await listReserve.finByFinalDate({
-            finalDate,
+        const reserve = await listReserve.finByFinalValue({
+            finalValue,
         });
         return response.json(reserve);
     }

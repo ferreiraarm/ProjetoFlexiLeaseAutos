@@ -8,6 +8,7 @@ class CreateReserveService {
     public async execute({
         startDate,
         endDate,
+        finalValue,
         carId,
         reservesId,
     }: IReserveCreateRequest): Promise<ReserveDTO> {
@@ -25,6 +26,7 @@ class CreateReserveService {
         const reserve = await reserveRepository.create({
             startDate,
             endDate,
+            finalValue,
             carId,
         });
         await reserveRepository.save(reserve);

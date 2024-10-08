@@ -38,7 +38,7 @@ class CarController {
         request: Request,
         response: Response,
     ): Promise<Response> {
-        const { model, color, year, valuePerDay, numberOfPassengers, carsId } =
+        const { model, color, year, valuePerDay, numberOfPassengers, cars_id } =
             request.body;
 
         const createCar = new CreateCarService();
@@ -48,7 +48,7 @@ class CarController {
             year,
             valuePerDay,
             numberOfPassengers,
-            carsId,
+            cars_id,
         });
         return response.json(car);
     }

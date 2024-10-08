@@ -4,5 +4,5 @@ export interface ICarCreateRequest {
     year: number;
     valuePerDay: number;
     numberOfPassengers: number;
-    carsId: number;
+    cars_id: number;
 }

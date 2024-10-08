@@ -13,7 +13,6 @@ export default class CarDTO {
 
     constructor(car: CarModel) {
         this.id = car.id;
-        this.carsId = car.cars.id;
         this.model = car.model;
         this.color = car.color;
         this.year = car.year;

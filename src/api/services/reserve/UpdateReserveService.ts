@@ -9,6 +9,7 @@ class UpdateReserveService {
         id,
         carId,
         startDate,
+        finalValue,
         endDate,
         reservesId,
     }: IReserveUpdateRequest): Promise<ReserveDTO> {
@@ -30,6 +31,7 @@ class UpdateReserveService {
         await reserveRepository.update(reserve.id, {
             carId,
             startDate,
+            finalValue,
             endDate,
         });
 

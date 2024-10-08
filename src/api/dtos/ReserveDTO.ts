@@ -4,7 +4,7 @@ export default class ReserveDTO {
     id: number;
     startDate: Date;
     endDate: Date;
-    finalDate: Date;
+    finalValue: number;
     userId: number;
     carId: number;
     reservesId: number;
@@ -13,7 +13,7 @@ export default class ReserveDTO {
         this.id = reserve.id;
         this.startDate = reserve.startDate;
         this.endDate = reserve.endDate;
-        this.finalDate = reserve.finalDate;
+        this.finalValue = reserve.finalValue;
         this.userId = reserve.userId;
         this.carId = reserve.carId;
         this.reservesId = reserve.reserves.id;

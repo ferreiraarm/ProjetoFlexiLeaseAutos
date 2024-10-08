@@ -11,8 +11,8 @@ reserveRouter.delete('/reserve/:id', reserveController.delete);
 reserveRouter.get('/reserve/:carId', reserveController.listReserveCarId);
 reserveRouter.get('/reserve/:endDate', reserveController.listReserveEndDate);
 reserveRouter.get(
-    '/reserve/:finalDate',
-    reserveController.listReserveFinalDate,
+    '/reserve/:finalValue',
+    reserveController.listReserveFinalValue,
 );
 reserveRouter.get(
     '/reserve/:startDate',
