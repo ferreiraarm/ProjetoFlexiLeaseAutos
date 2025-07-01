@@ -58,10 +58,10 @@ class CarController {
         response: Response,
     ): Promise<Response> {
         const id = parseInt(request.params.id);
-        const carsId = request.body;
+        const cars_id = request.body;
 
         const deleteCar = new DeleteCarService();
-        await deleteCar.execute({ id, carsId });
+        await deleteCar.execute({ id, cars_id });
         return response.status(204).send();
     }
 

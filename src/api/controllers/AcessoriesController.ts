@@ -28,11 +28,13 @@ class AcessoriesController {
         request: Request,
         response: Response,
     ): Promise<Response> {
+        const car_id = parseInt(request.params.car_id);
         const { name } = request.body;
 
         const createAcessories = new CreateAcessoriesService();
         const acessories = await createAcessories.execute({
             name,
+            car_id,
         });
         return response.json(acessories);
     }

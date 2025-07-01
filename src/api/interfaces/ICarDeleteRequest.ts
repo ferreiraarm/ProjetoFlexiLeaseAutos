@@ -1,4 +1,4 @@
 export interface ICarDeleteRequest {
     id: number;
-    carsId: number;
+    cars_id: number;
 }

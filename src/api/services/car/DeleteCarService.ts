@@ -4,10 +4,10 @@ import CarModel from '../../models/CarModel';
 import CarsModel from '../../models/CarsModel';
 
 class DeleteCarService {
-    public async execute({ id, carsId }: ICarDeleteRequest): Promise<void> {
+    public async execute({ id, cars_id }: ICarDeleteRequest): Promise<void> {
         const carsRepository = AppDataSource.getRepository(CarsModel);
         const cars = await carsRepository.findOne({
-            where: { id: carsId },
+            where: { id: cars_id },
             relations: ['car'],
         });
 
